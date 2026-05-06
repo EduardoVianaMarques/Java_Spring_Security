@@ -1,7 +1,7 @@
 package com.evm.asdasd.demo.controller;
 
 
-import com.evm.asdasd.demo.model.evmModel;
+import com.evm.asdasd.demo.model.PessoaModel;
 import com.evm.asdasd.demo.service.evmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,19 +20,19 @@ public class evmController {
     private evmService evmService;
 
     @GetMapping
-    public ResponseEntity<List<evmModel>> findAll() {
-        List<evmModel> requeste = evmService.findAll();
+    public ResponseEntity<List<PessoaModel>> findAll() {
+        List<PessoaModel> requeste = evmService.findAll();
         return ResponseEntity.ok().body(requeste);
     }
 
     @GetMapping("/{id}")
-    public Optional<evmModel> findById(@PathVariable Long id) {
+    public Optional<PessoaModel> findById(@PathVariable Long id) {
         return evmService.findById(id);
     }
 
     @PostMapping
-    public ResponseEntity<evmModel> cadastroLivro(@RequestBody evmModel evmModel) {
-        evmModel request = evmService.cadastro(evmModel);
+    public ResponseEntity<PessoaModel> cadastroLivro(@RequestBody PessoaModel PessoaModel) {
+        PessoaModel request = evmService.cadastro(PessoaModel);
 
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
@@ -44,9 +44,9 @@ public class evmController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<evmModel> atualizar(@PathVariable Long id, @RequestBody evmModel evmModel) {
-        evmModel evm = evmService.atualizar(id, evmModel);
-        return ResponseEntity.ok().body(evm);
+    public ResponseEntity<PessoaModel> atualizar(@PathVariable Long id, @RequestBody PessoaModel pessoaModel) {
+        PessoaModel pessoa = evmService.atualizar(id, pessoaModel);
+        return ResponseEntity.ok().body(pessoa);
     }
 
     @DeleteMapping("/{id}")

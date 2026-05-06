@@ -1,13 +1,14 @@
 package com.evm.asdasd.demo.model;
 
 
+import com.evm.asdasd.demo.tiposUsuarios.TiposUsuarios;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class evmModel {
+public class PessoaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,8 +16,9 @@ public class evmModel {
     private String name;
     private String idade;
     private String cpf;
+    private TiposUsuarios tiposUsuarios;
 
-    public evmModel() {
+    public PessoaModel() {
     }
 
 
@@ -50,5 +52,13 @@ public class evmModel {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public TiposUsuarios getTiposUsuarios() {
+        return tiposUsuarios;
+    }
+
+    public void setTiposUsuarios(TiposUsuarios tiposUsuarios) {
+        this.tiposUsuarios = tiposUsuarios;
     }
 }

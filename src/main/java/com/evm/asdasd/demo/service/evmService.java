@@ -1,7 +1,7 @@
 package com.evm.asdasd.demo.service;
 
 
-import com.evm.asdasd.demo.model.evmModel;
+import com.evm.asdasd.demo.model.PessoaModel;
 import com.evm.asdasd.demo.repository.evmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,27 +15,27 @@ public class evmService {
     @Autowired
     private evmRepository  evmRepository;
 
-    public List<evmModel> findAll() {
+    public List<PessoaModel> findAll() {
         return evmRepository.findAll();
     }
 
-    public Optional<evmModel> findById(Long id) {
+    public Optional<PessoaModel> findById(Long id) {
         return evmRepository.findById(id);
     }
 
-    public evmModel cadastro(evmModel evmmodel) {
-        return evmRepository.save(evmmodel);
+    public PessoaModel cadastro(PessoaModel pessoaModel) {
+        return evmRepository.save(pessoaModel);
     }
 
     public void  deleteById(Long id) {
         evmRepository.deleteById(id);
     }
 
-    public evmModel atualizar(Long id,evmModel evmModel) {
-        evmModel request = evmRepository.findById(id).get();
-        request.setName(evmModel.getName());
-        request.setIdade(evmModel.getIdade());
-        request.setCpf(evmModel.getCpf());
+    public PessoaModel atualizar(Long id, PessoaModel pessoaModel) {
+        PessoaModel request = evmRepository.findById(id).get();
+        request.setName(pessoaModel.getName());
+        request.setIdade(pessoaModel.getIdade());
+        request.setCpf(pessoaModel.getCpf());
         return evmRepository.save(request);
 
     }

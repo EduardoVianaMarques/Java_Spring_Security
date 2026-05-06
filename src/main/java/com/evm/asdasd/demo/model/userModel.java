@@ -1,6 +1,6 @@
 package com.evm.asdasd.demo.model;
 
-import com.evm.asdasd.demo.Enum.enum1;
+import com.evm.asdasd.demo.tiposUsuarios.TiposUsuarios;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,7 +9,6 @@ import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
@@ -22,7 +21,7 @@ public class userModel implements UserDetails{
     private Long id;
     private String usename;
     private String password;
-    private enum1 tipoUsuario;
+    private TiposUsuarios tipoUsuario;
 
 
 
