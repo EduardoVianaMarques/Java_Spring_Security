@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class evmService {
@@ -18,8 +19,8 @@ public class evmService {
         return evmRepository.findAll();
     }
 
-    public evmModel findById(long id) {
-        return evmRepository.findById(id).orElse(null);
+    public Optional<evmModel> findById(Long id) {
+        return evmRepository.findById(id);
     }
 
     public evmModel cadastro(evmModel evmmodel) {
@@ -30,10 +31,12 @@ public class evmService {
         evmRepository.deleteById(id);
     }
 
-    public evmModel atualizar(Long id,evmModel evmmodel) {
-        evmModel newevm = evmRepository.findById(id).get();
-        newevm.setName(evmmodel.getName());
-        return evmRepository.save(newevm);
+    public evmModel atualizar(Long id,evmModel evmModel) {
+        evmModel request = evmRepository.findById(id).get();
+        request.setName(evmModel.getName());
+        request.setIdade(evmModel.getIdade());
+        request.setCpf(evmModel.getCpf());
+        return evmRepository.save(request);
 
     }
 
