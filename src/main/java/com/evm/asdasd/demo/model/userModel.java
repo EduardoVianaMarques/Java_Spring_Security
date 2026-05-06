@@ -15,15 +15,12 @@ import java.util.List;
 @Entity
 public class userModel implements UserDetails{
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String usename;
     private String password;
     private TiposUsuarios tipoUsuario;
-
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
