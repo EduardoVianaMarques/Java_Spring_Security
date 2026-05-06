@@ -16,7 +16,6 @@ public class PessoaModel {
     private String name;
     private String idade;
     private String cpf;
-    private TiposUsuarios tiposUsuarios;
 
     public PessoaModel() {
     }
@@ -54,11 +53,4 @@ public class PessoaModel {
         this.cpf = cpf;
     }
 
-    public TiposUsuarios getTiposUsuarios() {
-        return tiposUsuarios;
-    }
-
-    public void setTiposUsuarios(TiposUsuarios tiposUsuarios) {
-        this.tiposUsuarios = tiposUsuarios;
-    }
 }

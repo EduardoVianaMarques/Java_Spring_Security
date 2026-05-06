@@ -1,30 +1,32 @@
 package com.evm.asdasd.demo.model;
 
 import com.evm.asdasd.demo.tiposUsuarios.TiposUsuarios;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
 
 @Entity
-public class userModel implements UserDetails{
+@Table(name = "Tipo Usuario")
+public class UserModel implements UserDetails{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String usename;
+    private String login;
     private String password;
     private TiposUsuarios tipoUsuario;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        if (this.tipoUsuario == TiposUsuarios.ADIMIN) return
+            List.of(new SimpleGrantedAuthority("adimnistrador"), new SimpleGrantedAuthority("usuario"));
+        else
+            return List.of(new SimpleGrantedAuthority("usuario"));
     }
 
     @Override
@@ -34,7 +36,7 @@ public class userModel implements UserDetails{
 
     @Override
     public String getUsername() {
-        return usename;
+        return login;
     }
 
     @Override

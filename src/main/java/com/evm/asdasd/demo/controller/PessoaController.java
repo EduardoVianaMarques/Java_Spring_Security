@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/evm")
+@RequestMapping(path = "/Pessoa")
 public class PessoaController {
 
     @Autowired
