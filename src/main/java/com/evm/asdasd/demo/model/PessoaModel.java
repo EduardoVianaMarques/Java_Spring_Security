@@ -2,10 +2,10 @@ package com.evm.asdasd.demo.model;
 
 
 import com.evm.asdasd.demo.tiposUsuarios.TiposUsuarios;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class PessoaModel {
@@ -17,9 +17,12 @@ public class PessoaModel {
     private String idade;
     private String cpf;
 
+    @OneToMany
+    private List<jobModel> jobModelList;
+
+
     public PessoaModel() {
     }
-
 
     public long getId() {
         return id;
